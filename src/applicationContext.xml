@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+">
+
+    <bean id="owner" class="lab1.PetOwner">
+        <!--
+        <constructor-arg type="String" value="John"/>
+        <constructor-arg ref="pet"/>
+        -->
+        <property name="name" value="Joe"/>
+        <property name="pet" ref="pet" />
+        
+        
+    </bean>
+    
+    <bean id="pet" class="lab1.Cat">
+        <!--
+        <constructor-arg type="String" value="Fido"/>
+        <constructor-arg type="int" value="8"/>
+        -->
+        
+        <property name="name" value="Lucifer"/>
+        <property name="realAge" value="5" />
+        
+    </bean>
+    
+    <bean id="tipService" class="lab2.TipService">
+        <property name="tipCalculator" ref="foodTipCalculator"/>
+    </bean>
+    
+    <bean id="foodTipCalculator" class="lab2.FoodServiceTipCalculator">
+        <constructor-arg type="lab2.TipService$ServiceQuality" value="FAIR" />
+        <constructor-arg type="double" value="10.00" />
+    </bean>
+    
+    
+    <bean id="baggageTipCalculator" class="lab2.BaggageServiceTipCalculator">
+    
+    </bean>
+</beans>
